@@ -1,6 +1,13 @@
-import styled, { css } from 'styled-components';
-import { shade } from 'polished';
+import styled from 'styled-components';
 import searchIcon from '../../assets/searchIcon.svg';
+
+export const Container = styled.div`
+  background: #fffcf9;
+  width: 378px;
+  height: 812px;
+  padding: 20px;
+  margin: 0 auto;
+`;
 
 export const Search = styled.form`
   margin-top: 50px;

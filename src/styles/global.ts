@@ -9,7 +9,7 @@ export default createGlobalStyle`
   }
 
   body {
-    background: #FFFCF9;
+    background: #FFF;
     -webkit-font-smoothing: antialiased;
   }
 
@@ -18,10 +18,10 @@ export default createGlobalStyle`
   }
 
   #root {
-    max-width: 376px;
-    max-height: 812px;
+    /* max-width: 376px;
+    max-height: 812px; */
     margin: 0 auto;
-    padding: 40px 20px;
+    /* padding: 40px 20px; */
   }
 
   button {

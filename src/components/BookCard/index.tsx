@@ -3,20 +3,33 @@ import BookImg from '../../assets/Hooked.png';
 
 import { Container } from './styles';
 
-const BookCard: React.FC = () => {
+interface BookProps {
+  title: string;
+  author: string;
+  pageCount: number;
+  thumbnail: string;
+  selflink: string;
+}
+
+const BookCard: React.FC<BookProps> = ({
+  title,
+  author,
+  pageCount,
+  thumbnail,
+}: any) => {
   return (
     <Container>
       <div className="info">
         <div>
-          <h1>Hookedss</h1>
-          <h2>Nir Eyal</h2>
+          <h1>{title}</h1>
+          <h2>{author}</h2>
         </div>
         <span>
-          🎉 <strong>120+</strong> Read Now
+          🎉 <strong>{pageCount}</strong> Read Now
         </span>
       </div>
       <div className="picture">
-        <img src={BookImg} alt="" />
+        <img src={thumbnail} alt="" />
       </div>
     </Container>
   );

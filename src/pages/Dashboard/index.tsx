@@ -1,29 +1,44 @@
 import React, { useState, useEffect, FormEvent } from 'react';
 import { Link } from 'react-router-dom';
+import { useEmblaCarousel } from 'embla-carousel/react';
 import api from '../../services/api';
-import logoImg from '../../assets/logo.svg';
+import BookImg from '../../assets/Hooked.png';
 
-import { Search, Greeting } from './styles';
+import { Container, Search, Greeting } from './styles';
 import BookCard from '../../components/BookCard';
+import EmblaCarousel from '../../components/EmblaCarousel/index.jsx';
 
-interface Repository {
-  full_name: string;
-  description: string;
-  owner: {
-    login: string;
-    avatar_url: string;
+interface Book {
+  id: string;
+  volumeInfo: {
+    title: string;
+    authors: Array<string>;
+    pageCount: number;
+    imageLinks: {
+      smallThumbnail: string;
+    };
   };
 }
 
 const Dashboard: React.FC = () => {
   const [query, setQuery] = useState('');
-  const [inputError, setInputError] = useState('');
+  const [isLoaded, setIsLoaded] = useState(false);
+  const [newBooks, setNewBooks] = useState<Book[]>([]);
 
   const userName = 'Evert';
 
+  useEffect(() => {
+    api
+      .get('https://www.googleapis.com/books/v1/volumes?q=Harry Potter')
+      .then(response => {
+        setNewBooks([...response.data.items]);
+        setIsLoaded(true);
+      });
+  }, []);
+
   return (
-    <>
-      <Search onSubmit={() => {}}>
+    <Container>
+      <Search>
         <input
           placeholder="Search Book"
           value={query}
@@ -33,8 +48,8 @@ const Dashboard: React.FC = () => {
       <Greeting>
         Hi, <span>{userName}</span> 👋
       </Greeting>
-      <BookCard />
-    </>
+      {isLoaded && <EmblaCarousel slides={newBooks} />}
+    </Container>
   );
 };
 

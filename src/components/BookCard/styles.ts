@@ -20,7 +20,7 @@ export const Container = styled.div`
     padding: 5px 0;
 
     h1 {
-      font-size: 18px;
+      font-size: 16px;
     }
 
     h2 {
@@ -31,6 +31,12 @@ export const Container = styled.div`
 
     span {
       font-size: 12px;
+    }
+  }
+
+  .picture {
+    img {
+      width: 72px;
     }
   }
 `;
