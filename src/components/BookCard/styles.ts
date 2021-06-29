@@ -1,7 +1,8 @@
 import styled from 'styled-components';
+import CardBg from '../../assets/cardBg.svg';
 
 export const Container = styled.div`
-  background-color: #00173d;
+  background: url(${CardBg}) #00173d no-repeat;
 
   display: flex;
   flex-direction: row;
@@ -21,6 +22,7 @@ export const Container = styled.div`
 
     h1 {
       font-size: 16px;
+      font-family: 'Playfair Display', serif;
     }
 
     h2 {
@@ -30,7 +32,15 @@ export const Container = styled.div`
     }
 
     span {
+      display: flex;
+      width: 80px;
       font-size: 12px;
+      align-items: center;
+      justify-content: space-between;
+
+      img {
+        width: 16px;
+      }
     }
   }
 

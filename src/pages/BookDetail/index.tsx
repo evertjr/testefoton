@@ -1,8 +1,13 @@
 import React, { useEffect, useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { useLocation, useHistory } from 'react-router-dom';
 import ReactHtmlParser from 'react-html-parser';
 import api from '../../services/api';
-import BookImg from '../../assets/Hooked.png';
+import BookImg from '../../assets/BlankBook.png';
+
+import OpenBookIcon from '../../assets/icons/book-open.svg';
+import HeadphoneIcon from '../../assets/icons/headphones.svg';
+import ShareIcon from '../../assets/icons/share.svg';
+import BackIcon from '../../assets/icons/Back.svg';
 
 import { Container, Description, ActionMenu } from './styles';
 
@@ -26,6 +31,8 @@ interface Book {
 const BookDetail: React.FC = () => {
   const [BookDetails, setBookDetails] = useState<Book>();
 
+  const history = useHistory();
+
   const location = useLocation<BookParams>();
   const { apiURL } = location.state;
 
@@ -33,31 +40,45 @@ const BookDetail: React.FC = () => {
     api.get(apiURL).then(response => {
       setBookDetails(response.data);
     });
-  }, []);
+  }, [apiURL]);
 
   return (
     <Container>
       <Description>
-        <Link to="/">Voltar</Link>
+        <button type="button" onClick={history.goBack}>
+          <img src={BackIcon} alt="" />
+        </button>
         <img
           src={
-            BookDetails?.volumeInfo.imageLinks.thumbnail
-              ? BookDetails?.volumeInfo.imageLinks.thumbnail
-              : BookImg
+            (BookDetails?.volumeInfo.imageLinks &&
+              BookDetails?.volumeInfo.imageLinks.thumbnail) ||
+            BookImg
           }
           alt={BookDetails?.volumeInfo.title}
         />
         <h1>{BookDetails?.volumeInfo.title}</h1>
-        <h2>{BookDetails?.volumeInfo.authors[0]}</h2>
+        <h2>
+          {BookDetails?.volumeInfo.authors &&
+            BookDetails?.volumeInfo.authors[0]}
+        </h2>
         <p>{ReactHtmlParser(BookDetails?.volumeInfo.description)}</p>
       </Description>
       <ActionMenu>
         <div>
-          <button type="button">Read</button>
+          <button type="button">
+            <img src={OpenBookIcon} alt="" />
+            Read
+          </button>
           <span className="vl" />
-          <button type="button">Listen</button>
+          <button type="button">
+            <img src={HeadphoneIcon} alt="" />
+            Listen
+          </button>
           <span className="vl" />
-          <button type="button">Share</button>
+          <button type="button">
+            <img src={ShareIcon} alt="" />
+            Share
+          </button>
         </div>
       </ActionMenu>
     </Container>

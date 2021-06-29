@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import background from '../../assets/detailBackground.svg';
 
 export const Container = styled.div`
-  background-color: #fff;
+  background-color: #f2f2f2;
   width: 378px;
   height: 812px;
   padding: 20px;
@@ -18,11 +18,17 @@ export const Description = styled.div`
   width: 335px;
   margin-top: 60px;
 
-  a {
+  button {
     width: 50px;
-    position: fixed;
+    position: absolute;
     top: 50px;
     text-decoration: none;
+    border: none;
+    background: none;
+
+    img {
+      width: 14px;
+    }
   }
 
   img {
@@ -47,7 +53,7 @@ export const Description = styled.div`
     margin-top: 10px;
     color: #313131;
     line-height: 25px;
-    padding-bottom: 80px;
+    padding-bottom: 30vh;
   }
 `;
 
@@ -55,20 +61,32 @@ export const ActionMenu = styled.div`
   div {
     width: 335px;
     height: 56px;
-    background: #ffffff;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(8px);
     box-shadow: 3px 3px 23px rgba(107, 103, 70, 0.125901);
     border-radius: 2px;
     padding: 20px 22px;
 
     display: flex;
     justify-content: space-between;
+    align-items: center;
 
     position: fixed;
     bottom: 53px;
 
     button {
+      display: flex;
+      align-items: center;
       background: none;
       border: none;
+      font-size: 14px;
+      font-weight: 600;
+      color: #3f4043;
+
+      img {
+        width: 16px;
+        margin-right: 8px;
+      }
     }
 
     .vl {

@@ -75,3 +75,7 @@
 .embla__button_next {
   right: 27px;
 }
+
+a {
+  text-decoration: none;
+}

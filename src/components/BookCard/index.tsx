@@ -1,5 +1,5 @@
-import React, { useState, useEffect, FormEvent } from 'react';
-import BookImg from '../../assets/Hooked.png';
+import React from 'react';
+import PagesIcon from '../../assets/icons/pages.svg';
 
 import { Container } from './styles';
 
@@ -8,7 +8,6 @@ interface BookProps {
   author: string;
   pageCount: number;
   thumbnail: string;
-  selflink: string;
 }
 
 const BookCard: React.FC<BookProps> = ({
@@ -16,7 +15,7 @@ const BookCard: React.FC<BookProps> = ({
   author,
   pageCount,
   thumbnail,
-}: any) => {
+}: BookProps) => {
   return (
     <Container>
       <div className="info">
@@ -25,7 +24,8 @@ const BookCard: React.FC<BookProps> = ({
           <h2>{author}</h2>
         </div>
         <span>
-          🎉 <strong>{pageCount}</strong> Read Now
+          <img src={PagesIcon} alt="" />
+          <strong>{pageCount}</strong> pages
         </span>
       </div>
       <div className="picture">

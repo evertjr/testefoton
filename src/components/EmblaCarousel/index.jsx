@@ -45,7 +45,7 @@ const EmblaCarousel = ({ slides }) => {
                   >
                     <BookCard
                       title={i.volumeInfo.title}
-                      author={i.volumeInfo.authors[0]}
+                      author={i.volumeInfo.authors && i.volumeInfo.authors[0]}
                       pageCount={i.volumeInfo.pageCount}
                       thumbnail={
                         i.volumeInfo.imageLinks &&
