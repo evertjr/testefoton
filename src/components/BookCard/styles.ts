@@ -17,16 +17,16 @@ export const Container = styled.div`
     flex-direction: column;
     justify-content: space-between;
     color: #fff;
-    max-width: 150px;
+    max-width: 145px;
     padding: 5px 0;
 
     h1 {
-      font-size: 16px;
+      font-size: 15px;
       font-family: 'Playfair Display', serif;
     }
 
     h2 {
-      font-size: 14px;
+      font-size: 12px;
       font-weight: 400;
       margin-top: 5px;
     }

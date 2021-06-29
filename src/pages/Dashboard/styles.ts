@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import CardBg2 from '../../assets/cardBg2.svg';
 
 export const Container = styled.div`
   background: #fffcf9;
@@ -53,11 +54,11 @@ export const Featured = styled.div`
   div {
     display: flex;
     flex-direction: column;
-    background: #ecf2d7;
+    background: url(${CardBg2}) #ecf2d7 no-repeat 30px;
     height: 100px;
     width: 331px;
     position: absolute;
-    left: 405px;
+    margin-left: -20px;
     padding: 10px 10px 10px 120px;
     z-index: 1;
 

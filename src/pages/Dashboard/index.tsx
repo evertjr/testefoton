@@ -29,7 +29,7 @@ const Dashboard: React.FC = () => {
 
   useEffect(() => {
     api
-      .get('https://www.googleapis.com/books/v1/volumes?q=Lord of the Rings', {
+      .get('https://www.googleapis.com/books/v1/volumes?q=Game of Thrones', {
         params: {
           maxResults: 5,
         },
