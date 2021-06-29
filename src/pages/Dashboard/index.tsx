@@ -21,7 +21,6 @@ interface Book {
 }
 
 const Dashboard: React.FC = () => {
-  const [query, setQuery] = useState('');
   const [isLoaded, setIsLoaded] = useState(false);
   const [newBooks, setNewBooks] = useState<Book[]>([]);
 
@@ -53,7 +52,7 @@ const Dashboard: React.FC = () => {
       {isLoaded && <EmblaCarousel slides={newBooks} />}
       <Title>
         <h2>Currently Reading</h2>
-        <button type="button">More</button>
+        <button type="button">All</button>
       </Title>
       <Featured>
         <img src={OriginalsBook} alt="" />
@@ -68,7 +67,7 @@ const Dashboard: React.FC = () => {
       </Featured>
       <Title>
         <h2>Review of the day</h2>
-        <button type="button">More</button>
+        <button type="button">All Videos</button>
       </Title>
       <Reviews>
         <img src={VideoFrame} alt="" />
