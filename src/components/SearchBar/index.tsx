@@ -1,7 +1,5 @@
-import React, { useState, useEffect, FormEvent } from 'react';
+import React, { useState, FormEvent } from 'react';
 import { useHistory } from 'react-router-dom';
-import BookImg from '../../assets/BlankBook.png';
-import SearchResult from '../../pages/SearchResult';
 
 import { Container, Search } from './styles';
 

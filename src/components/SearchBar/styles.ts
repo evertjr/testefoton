@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import searchIcon from '../../assets/searchIcon.svg';
 
 export const Container = styled.div``;
